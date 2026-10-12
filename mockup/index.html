@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Art Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<script src="artworks.js"></script>
+<body>
+
+    <header class="app-header">
+
+        <div class="header-content">
+
+            <h1>Art Gallery</h1>
+
+            <p class="subtitle">
+                A platform for discovering, showcasing, buying and selling artworks.
+            </p>
+
+            <p class="app-count">
+                3 artworks, 2 available
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- ARTWORKS -->
+        <section class="panel artworks-panel">
+
+            <h2>Artworks</h2>
+
+            <!-- When the list is empty:
+            <p class="empty">No artworks available.</p>
+            -->
+
+            <ul class="item-list">
+
+                <!-- Artwork 1 -->
+                <li class="item-card">
+
+                    <div class="artwork-image">
+                        Artwork image
+                    </div>
+
+                    <div class="artwork-info">
+
+                        <h3>Sunset Landscape</h3>
+
+                        <div class="artwork-details">
+
+                            <span class="badge badge-painting">
+                                Painting
+                            </span>
+
+                            <span class="status">
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+
+                <!-- Artwork 2 -->
+                <li class="item-card done">
+
+                    <div class="artwork-image">
+                        Artwork image
+                    </div>
+
+                    <div class="artwork-info">
+
+                        <h3>Silent Forest</h3>
+
+                        <div class="artwork-details">
+
+                            <span class="badge badge-digital">
+                                Digital Art
+                            </span>
+
+                            <span class="status">
+                                Sold
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+
+                <!-- Artwork 3 -->
+                <li class="item-card">
+
+                    <div class="artwork-image">
+                        Artwork image
+                    </div>
+
+                    <div class="artwork-info">
+
+                        <h3>Abstract Flowers</h3>
+
+                        <div class="artwork-details">
+
+                            <span class="badge badge-painting">
+                                Painting
+                            </span>
+
+                            <span class="status">
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- ADD ARTWORK -->
+        <section class="panel add-panel">
+
+            <h2>Add artwork</h2>
+
+            <form class="item-form">
+
+                <label>
+                    Artwork title
+
+                    <input
+                        type="text"
+                        name="title"
+                        placeholder="Ex: Sunset Landscape"
+                    />
+                </label>
+
+
+                <label>
+                    Art type
+
+                    <select name="art-type">
+
+                        <option value="Painting">
+                            Painting
+                        </option>
+
+                        <option value="Illustration">
+                            Illustration
+                        </option>
+
+                        <option value="Digital Art">
+                            Digital Art
+                        </option>
+
+                    </select>
+
+                </label>
+
+
+                <button type="submit">
+                    Add artwork
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer class="app-footer">
+        Art Gallery
+    </footer>
+
+</body>
+
+</html>

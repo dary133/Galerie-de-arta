@@ -1,0 +1,701 @@
+/* Setari generale */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Culorile site-ului */
+
+:root {
+    --dark-green: #0f1a13;
+    --dark-green-soft: #1d2a21;
+    --olive-brown: #2f3b31;
+
+    --brown-dark: #3a2d24;
+    --brown-medium: #6f503d;
+    --brown-soft: #8a6a54;
+
+    --beige-light: #f1e7d8;
+    --beige-soft: #d9c7b1;
+    --beige-muted: #bba892;
+
+    --gold: #d4b96f;
+    --gold-light: #eadb9f;
+    --gold-soft: #c8ab5d;
+    --gold-muted: #b99643;
+
+    --bg: #0f1a13;
+    --bg-secondary: #241c17;
+
+    --panel-bg: rgba(58, 45, 36, 0.92);
+    --item-bg: rgba(46, 59, 50, 0.86);
+    --card: #241d18;
+    --image-bg: rgba(241, 231, 216, 0.06);
+
+    --text: #eadb9f;
+    --muted: #d4c08b;
+    --header-text: #f4e7b5;
+
+    --accent: #d4b96f;
+    --accent-dark: #8a6a54;
+    --accent-soft: #eadb9f;
+
+    --border: #8a6a54;
+    --border-soft: rgba(217, 199, 177, 0.22);
+
+    --painting: #243227;
+    --illustration: #8a6a54;
+    --digital: #5f4332;
+
+    --button-text: #f4e7b5;
+    --badge-text: #f7edd0;
+
+    --shadow: rgba(0, 0, 0, 0.30);
+    --shadow-strong: rgba(0, 0, 0, 0.48);
+
+    --glow: rgba(212, 185, 111, 0.16);
+    --glow-strong: rgba(212, 185, 111, 0.30);
+    --text-glow: rgba(212, 185, 111, 0.35);
+    --text-glow-strong: rgba(212, 185, 111, 0.55);
+
+    --header-overlay: rgba(15, 26, 19, 0.52);
+
+    --transparent: transparent;
+
+    --page-background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(138, 106, 84, 0.14),
+            var(--transparent) 30%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(36, 50, 39, 0.22),
+            var(--transparent) 40%
+        ),
+        linear-gradient(
+            135deg,
+            var(--bg),
+            var(--bg-secondary)
+        );
+}
+
+
+/* Pagina */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    background: var(--page-background);
+    background-attachment: fixed;
+
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Header */
+
+.app-header {
+    min-height: 430px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    color: var(--header-text);
+
+    background-image:
+        linear-gradient(
+            var(--header-overlay),
+            var(--header-overlay)
+        ),
+        url("background.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* Continutul din header */
+
+.header-content {
+    max-width: 850px;
+    padding: 30px;
+}
+
+
+/* Titlul principal */
+
+.app-header h1 {
+    margin: 0 0 16px;
+
+    font-size: 4rem;
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+    color: var(--gold-light);
+
+    text-shadow:
+        0 0 6px var(--text-glow),
+        0 0 14px var(--text-glow),
+        0 0 28px var(--text-glow-strong);
+}
+
+
+/* Subtitlul */
+
+.app-header .subtitle {
+    max-width: 750px;
+
+    margin: 0 auto 18px;
+
+    font-size: 1.3rem;
+
+    color: var(--gold-light);
+
+    text-shadow:
+        0 0 4px var(--text-glow),
+        0 0 10px var(--text-glow);
+}
+
+
+/* Numarul de artworks */
+
+.app-count {
+    display: inline-block;
+
+    margin: 0;
+
+    padding: 7px 17px;
+
+    border: 1px solid var(--border-soft);
+    border-radius: 999px;
+
+    color: var(--gold-light);
+
+    background: rgba(58, 45, 36, 0.42);
+
+    text-shadow:
+        0 0 4px var(--text-glow),
+        0 0 8px var(--text-glow);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+
+/* Continut principal */
+
+.container {
+    max-width: 1200px;
+    margin: 55px auto;
+    padding: 0 24px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+    align-items: start;
+}
+
+
+/* Panouri */
+
+.panel {
+    width: 100%;
+
+    padding: 34px;
+
+    background: var(--panel-bg);
+
+    border: 1px solid var(--border-soft);
+    border-radius: 18px;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 16px 35px var(--shadow),
+        0 0 10px var(--glow);
+}
+
+
+/* Titlurile sectiunilor */
+
+.panel h2 {
+    margin: 0 0 28px;
+
+    font-size: 2rem;
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    color: var(--gold-light);
+
+    text-shadow:
+        0 0 4px var(--text-glow),
+        0 0 12px var(--text-glow);
+}
+
+
+/* Sectiunea artworks */
+
+.artworks-panel {
+    width: 100%;
+}
+
+
+/* Lista de artworks */
+
+.item-list {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* Card artwork */
+
+.item-card {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 410px;
+
+    padding: 18px;
+
+    border: 1px solid rgba(217, 199, 177, 0.18);
+    border-radius: 15px;
+
+    background: var(--item-bg);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    box-shadow:
+        0 12px 24px var(--shadow),
+        0 0 8px var(--glow);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* Locul pentru imagine */
+
+.artwork-image {
+    width: 100%;
+    height: 270px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 19px;
+
+    border: 1px dashed rgba(217, 199, 177, 0.20);
+    border-radius: 11px;
+
+    background: var(--image-bg);
+
+    color: var(--gold-soft);
+
+    font-size: 0.95rem;
+
+    text-shadow:
+        0 0 4px var(--text-glow);
+}
+
+
+/* Imagine reala */
+
+.artwork-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+}
+
+
+/* Informatiile despre artwork */
+
+.artwork-info {
+    margin-top: auto;
+}
+
+
+.artwork-info h3 {
+    margin: 0 0 13px;
+
+    font-size: 1.3rem;
+    font-weight: 600;
+
+    color: var(--gold-light);
+
+    text-shadow:
+        0 0 4px var(--text-glow),
+        0 0 10px var(--text-glow);
+}
+
+
+/* Badge si status */
+
+.artwork-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* Status */
+
+.status {
+    color: var(--gold-light);
+
+    font-size: 0.9rem;
+
+    text-shadow:
+        0 0 4px var(--text-glow);
+}
+
+
+/* Badge-uri */
+
+.badge {
+    display: inline-block;
+
+    padding: 5px 11px;
+
+    border-radius: 999px;
+
+    font-size: 0.8rem;
+
+    color: var(--badge-text);
+
+    text-shadow:
+        0 0 4px rgba(0, 0, 0, 0.18);
+}
+
+
+.badge-painting {
+    background: var(--painting);
+}
+
+
+.badge-illustration {
+    background: var(--illustration);
+}
+
+
+.badge-digital {
+    background: var(--digital);
+}
+
+
+/* Artwork vandut */
+
+.item-card.done {
+    opacity: 0.78;
+}
+
+
+.item-card.done h3 {
+    text-decoration: line-through;
+
+    color: var(--muted);
+}
+
+
+/* Hover pe card */
+
+.item-card:hover {
+    transform: translateY(-7px);
+
+    border-color: var(--beige-soft);
+
+    background: rgba(65, 80, 68, 0.90);
+
+    box-shadow:
+        0 20px 36px var(--shadow-strong),
+        0 0 14px var(--glow),
+        0 0 24px var(--glow-strong);
+}
+
+
+/* Add artwork */
+
+.add-panel {
+    width: 100%;
+}
+
+
+/* Formular */
+
+.item-form {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* Label */
+
+.item-form label {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    font-weight: 500;
+
+    color: var(--gold-light);
+
+    text-shadow:
+        0 0 4px var(--text-glow);
+}
+
+
+/* Input si select */
+
+.item-form input,
+.item-form select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    background: rgba(30, 24, 20, 0.95);
+
+    color: var(--gold-light);
+
+    font: inherit;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.item-form input::placeholder {
+    color: var(--gold-muted);
+}
+
+
+/* Focus pe input */
+
+.item-form input:focus,
+.item-form select:focus {
+    border-color: var(--gold-light);
+
+    box-shadow:
+        0 0 8px var(--glow),
+        0 0 14px var(--glow);
+}
+
+
+/* Buton */
+
+.item-form button {
+    grid-column: 1 / -1;
+
+    padding: 13px 16px;
+
+    border: 1px solid var(--beige-soft);
+    border-radius: 9px;
+
+    background: var(--dark-green);
+
+    color: var(--gold-light);
+
+    font: inherit;
+
+    text-shadow:
+        0 0 4px var(--text-glow),
+        0 0 10px var(--text-glow);
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Hover buton */
+
+.item-form button:hover {
+    background: var(--dark-green-soft);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px var(--shadow),
+        0 0 12px var(--glow);
+}
+
+
+/* Lista goala */
+
+.empty {
+    margin: 0;
+
+    padding: 20px;
+
+    text-align: center;
+
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+
+    color: var(--gold-light);
+
+    text-shadow:
+        0 0 4px var(--text-glow);
+}
+
+
+/* Footer */
+
+.app-footer {
+    padding: 32px 20px;
+
+    text-align: center;
+
+    color: var(--gold-light);
+
+    font-size: 0.9rem;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 0 4px var(--text-glow);
+}
+
+
+/* Focus cu Tab */
+
+:focus-visible {
+    outline: 2px solid var(--beige-soft);
+
+    outline-offset: 3px;
+}
+
+
+/* Responsive design */
+
+@media (max-width: 700px) {
+
+    .container {
+        margin: 30px auto;
+        padding: 0 16px;
+    }
+
+    .panel {
+        padding: 24px;
+    }
+
+    .app-header {
+        min-height: 340px;
+    }
+
+    .app-header h1 {
+        font-size: 2.7rem;
+        letter-spacing: 3px;
+    }
+
+    .app-header .subtitle {
+        font-size: 1.05rem;
+    }
+
+    .item-list {
+        grid-template-columns: 1fr;
+    }
+
+    .item-form {
+        grid-template-columns: 1fr;
+    }
+
+    .item-form button {
+        grid-column: auto;
+    }
+
+    .artwork-image {
+        height: 240px;
+    }
+}
+
+
+/* Dark mode */
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --bg: #0c1510;
+        --bg-secondary: #1f1814;
+
+        --panel-bg: rgba(52, 40, 32, 0.95);
+        --item-bg: rgba(46, 59, 50, 0.88);
+        --card: #241d18;
+        --image-bg: rgba(241, 231, 216, 0.08);
+
+        --text: #eadb9f;
+        --muted: #d4c08b;
+        --header-text: #f4e7b5;
+
+        --accent: #d9c7b1;
+        --accent-dark: #8a6a54;
+        --accent-soft: #f1e7d8;
+
+        --border: #8a6a54;
+        --border-soft: rgba(217, 199, 177, 0.20);
+
+        --painting: #243227;
+        --illustration: #8a6a54;
+        --digital: #5f4332;
+
+        --button-text: #f4e7b5;
+        --badge-text: #ffffff;
+
+        --shadow: rgba(0, 0, 0, 0.38);
+        --shadow-strong: rgba(0, 0, 0, 0.56);
+
+        --glow: rgba(212, 185, 111, 0.12);
+        --glow-strong: rgba(212, 185, 111, 0.22);
+        --text-glow: rgba(212, 185, 111, 0.35);
+        --text-glow-strong: rgba(212, 185, 111, 0.55);
+
+        --header-overlay: rgba(12, 21, 16, 0.60);
+    }
+}
