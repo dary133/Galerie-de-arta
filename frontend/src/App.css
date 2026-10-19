@@ -117,7 +117,7 @@ body {
             var(--header-overlay),
             var(--header-overlay)
         ),
-        url("background.jpg");
+        url("/background.jpg");
 
     background-position: center;
     background-size: cover;

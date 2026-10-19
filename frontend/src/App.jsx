@@ -1,4 +1,6 @@
 
+import ArtworkList from "./components/ArtworkList.jsx";
+
 const artworks = [
   {
     id: 1,
@@ -27,10 +29,7 @@ export default function App() {
     <>
       <header className="app-header">
         <h1>Art Gallery</h1>
-        <p>
-          Welcome to a platform dedicated to discovering,
-          showcasing, buying, and selling art.
-        </p>
+        <p>Discover, showcase, buy and sell artworks.</p>
         <p className="app-count">
           {artworks.length} artworks, {available} available
         </p>
@@ -38,8 +37,8 @@ export default function App() {
 
       <main className="container">
         <section className="panel">
-          <h2>Artworks</h2>
-          <pre>{JSON.stringify(artworks, null, 2)}</pre>
+          <h2>My Artworks</h2>
+          <ArtworkList artworks={artworks} />
         </section>
       </main>
     </>

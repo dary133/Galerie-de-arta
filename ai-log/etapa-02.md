@@ -3,9 +3,6 @@
 ## Tools
 - ChatGPT
 
-## Conversations
-- [ChatGPT conversation link] (JavaScript array methods, immutability, validation and testing)
-
 ## Key requests
 
 ### 1. JavaScript array methods
