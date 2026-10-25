@@ -1,12 +1,10 @@
-/* Setari generale */
 
+/* Setari generale */
 * {
     box-sizing: border-box;
 }
 
-
 /* Culorile site-ului */
-
 :root {
     --dark-green: #0f1a13;
     --dark-green-soft: #1d2a21;
@@ -30,8 +28,11 @@
 
     --panel-bg: rgba(58, 45, 36, 0.92);
     --item-bg: rgba(46, 59, 50, 0.86);
+    --item-hover-bg: rgba(65, 80, 68, 0.90);
     --card: #241d18;
     --image-bg: rgba(241, 231, 216, 0.06);
+    --input-bg: rgba(30, 24, 20, 0.95);
+    --count-bg: rgba(58, 45, 36, 0.42);
 
     --text: #eadb9f;
     --muted: #d4c08b;
@@ -43,6 +44,8 @@
 
     --border: #8a6a54;
     --border-soft: rgba(217, 199, 177, 0.22);
+    --item-border: rgba(217, 199, 177, 0.18);
+    --image-border-soft: rgba(217, 199, 177, 0.20);
 
     --painting: #243227;
     --illustration: #8a6a54;
@@ -53,6 +56,7 @@
 
     --shadow: rgba(0, 0, 0, 0.30);
     --shadow-strong: rgba(0, 0, 0, 0.48);
+    --badge-shadow: rgba(0, 0, 0, 0.18);
 
     --glow: rgba(212, 185, 111, 0.16);
     --glow-strong: rgba(212, 185, 111, 0.30);
@@ -61,17 +65,24 @@
 
     --header-overlay: rgba(15, 26, 19, 0.52);
 
+    /* Rama aurie a tablourilor */
+    --artwork-frame-gold: #ccb471;
+    --artwork-frame-shadow: rgba(204, 180, 113, 0.25);
+
+    /* Culorile fundalului */
+    --page-glow-left: rgba(138, 106, 84, 0.14);
+    --page-glow-right: rgba(36, 50, 39, 0.22);
     --transparent: transparent;
 
     --page-background:
         radial-gradient(
             circle at 15% 20%,
-            rgba(138, 106, 84, 0.14),
+            var(--page-glow-left),
             var(--transparent) 30%
         ),
         radial-gradient(
             circle at 85% 75%,
-            rgba(36, 50, 39, 0.22),
+            var(--page-glow-right),
             var(--transparent) 40%
         ),
         linear-gradient(
@@ -81,8 +92,10 @@
         );
 }
 
-
 /* Pagina */
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
@@ -98,18 +111,17 @@ body {
 }
 
 /* Header */
-
 .app-header {
+    position: relative;
     min-height: 430px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 25px;
 
-    padding: 50px 20px;
-
+    padding: 70px 20px 50px;
     text-align: center;
-
     color: var(--header-text);
 
     background-image:
@@ -126,23 +138,55 @@ body {
     border-bottom: 1px solid var(--border);
 }
 
-
 /* Continutul din header */
-
 .header-content {
     max-width: 850px;
     padding: 30px;
 }
 
+/* Meniu */
+.main-nav {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    margin: 0;
+    z-index: 10;
+}
+
+/* Linkurile meniului */
+.main-nav a {
+    color: var(--accent);
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+/* Hover meniu */
+.main-nav a:hover {
+    color: var(--gold-light);
+    text-decoration: underline;
+    text-underline-offset: 7px;
+
+    text-shadow: 0 0 10px var(--glow-strong);
+}
 
 /* Titlul principal */
-
 .app-header h1 {
     margin: 0 0 16px;
 
     font-size: 4rem;
     font-weight: 500;
-
     letter-spacing: 5px;
 
     color: var(--gold-light);
@@ -153,16 +197,13 @@ body {
         0 0 28px var(--text-glow-strong);
 }
 
-
 /* Subtitlul */
-
-.app-header .subtitle {
+.app-header .subtitle,
+.app-header > p:not(.app-count) {
     max-width: 750px;
-
     margin: 0 auto 18px;
 
     font-size: 1.3rem;
-
     color: var(--gold-light);
 
     text-shadow:
@@ -170,22 +211,18 @@ body {
         0 0 10px var(--text-glow);
 }
 
-
 /* Numarul de artworks */
-
 .app-count {
     display: inline-block;
 
     margin: 0;
-
     padding: 7px 17px;
 
     border: 1px solid var(--border-soft);
     border-radius: 999px;
 
     color: var(--gold-light);
-
-    background: rgba(58, 45, 36, 0.42);
+    background: var(--count-bg);
 
     text-shadow:
         0 0 4px var(--text-glow),
@@ -195,9 +232,7 @@ body {
     -webkit-backdrop-filter: blur(5px);
 }
 
-
 /* Continut principal */
-
 .container {
     max-width: 1200px;
     margin: 55px auto;
@@ -205,17 +240,14 @@ body {
 
     display: grid;
     grid-template-columns: 1fr;
-
     gap: 45px;
+
     align-items: start;
 }
 
-
 /* Panouri */
-
 .panel {
     width: 100%;
-
     padding: 34px;
 
     background: var(--panel-bg);
@@ -231,15 +263,12 @@ body {
         0 0 10px var(--glow);
 }
 
-
 /* Titlurile sectiunilor */
-
 .panel h2 {
     margin: 0 0 28px;
 
     font-size: 2rem;
     font-weight: 500;
-
     letter-spacing: 1px;
 
     color: var(--gold-light);
@@ -249,16 +278,19 @@ body {
         0 0 12px var(--text-glow);
 }
 
+/* Navigare intre sectiuni */
+#gallery,
+#about {
+    scroll-margin-top: 20px;
+}
 
-/* Sectiunea artworks */
-
-.artworks-panel {
+/* Sectiuni */
+.artworks-panel,
+.add-panel {
     width: 100%;
 }
 
-
 /* Lista de artworks */
-
 .item-list {
     list-style: none;
 
@@ -266,24 +298,20 @@ body {
     padding: 0;
 
     display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
 }
 
-
 /* Card artwork */
-
 .item-card {
     display: flex;
     flex-direction: column;
 
+    min-width: 0;
     min-height: 410px;
-
     padding: 18px;
 
-    border: 1px solid rgba(217, 199, 177, 0.18);
+    border: 1px solid var(--item-border);
     border-radius: 15px;
 
     background: var(--item-bg);
@@ -302,53 +330,43 @@ body {
         border-color 0.25s ease;
 }
 
+/* Continutul cardului */
+.artwork-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
 
-/* Locul pentru imagine */
-
+/* Imaginea tabloului */
 .artwork-image {
+    display: block;
+
     width: 100%;
     height: 270px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     margin-bottom: 19px;
-
-    border: 1px dashed rgba(217, 199, 177, 0.20);
-    border-radius: 11px;
-
-    background: var(--image-bg);
-
-    color: var(--gold-soft);
-
-    font-size: 0.95rem;
-
-    text-shadow:
-        0 0 4px var(--text-glow);
-}
-
-
-/* Imagine reala */
-
-.artwork-image img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
 
     object-fit: cover;
 
-    border-radius: 10px;
+    border: 2px solid var(--artwork-frame-gold);
+    border-radius: 8px;
+
+    background: var(--image-bg);
+
+    box-shadow:
+        0 0 8px var(--artwork-frame-shadow);
 }
 
+/* Sunset Landscape */
+.item-card:first-child .artwork-image {
+    object-fit: contain;
+}
 
-/* Informatiile despre artwork */
-
+/* Informatii artwork */
 .artwork-info {
     margin-top: auto;
 }
-
 
 .artwork-info h3 {
     margin: 0 0 13px;
@@ -363,85 +381,65 @@ body {
         0 0 10px var(--text-glow);
 }
 
-
 /* Badge si status */
-
 .artwork-details {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     gap: 10px;
 }
 
-
 /* Status */
-
 .status {
     color: var(--gold-light);
-
     font-size: 0.9rem;
 
     text-shadow:
         0 0 4px var(--text-glow);
 }
 
-
 /* Badge-uri */
-
 .badge {
     display: inline-block;
 
     padding: 5px 11px;
-
     border-radius: 999px;
 
     font-size: 0.8rem;
-
     color: var(--badge-text);
 
     text-shadow:
-        0 0 4px rgba(0, 0, 0, 0.18);
+        0 0 4px var(--badge-shadow);
 }
-
 
 .badge-painting {
     background: var(--painting);
 }
 
-
 .badge-illustration {
     background: var(--illustration);
 }
-
 
 .badge-digital {
     background: var(--digital);
 }
 
-
 /* Artwork vandut */
-
 .item-card.done {
     opacity: 0.78;
 }
 
-
 .item-card.done h3 {
     text-decoration: line-through;
-
     color: var(--muted);
 }
 
-
 /* Hover pe card */
-
 .item-card:hover {
     transform: translateY(-7px);
 
     border-color: var(--beige-soft);
-
-    background: rgba(65, 80, 68, 0.90);
+    background: var(--item-hover-bg);
 
     box-shadow:
         0 20px 36px var(--shadow-strong),
@@ -449,55 +447,36 @@ body {
         0 0 24px var(--glow-strong);
 }
 
-
-/* Add artwork */
-
-.add-panel {
-    width: 100%;
-}
-
-
 /* Formular */
-
 .item-form {
     display: grid;
-
     grid-template-columns: 2fr 1fr;
-
     gap: 20px;
 }
 
-
 /* Label */
-
 .item-form label {
     display: flex;
     flex-direction: column;
-
     gap: 8px;
 
     font-weight: 500;
-
     color: var(--gold-light);
 
     text-shadow:
         0 0 4px var(--text-glow);
 }
 
-
 /* Input si select */
-
 .item-form input,
 .item-form select {
     width: 100%;
-
     padding: 12px 14px;
 
     border: 1px solid var(--border);
     border-radius: 9px;
 
-    background: rgba(30, 24, 20, 0.95);
-
+    background: var(--input-bg);
     color: var(--gold-light);
 
     font: inherit;
@@ -507,14 +486,11 @@ body {
         box-shadow 0.2s ease;
 }
 
-
 .item-form input::placeholder {
     color: var(--gold-muted);
 }
 
-
 /* Focus pe input */
-
 .item-form input:focus,
 .item-form select:focus {
     border-color: var(--gold-light);
@@ -524,9 +500,7 @@ body {
         0 0 14px var(--glow);
 }
 
-
 /* Buton */
-
 .item-form button {
     grid-column: 1 / -1;
 
@@ -536,7 +510,6 @@ body {
     border-radius: 9px;
 
     background: var(--dark-green);
-
     color: var(--gold-light);
 
     font: inherit;
@@ -553,12 +526,9 @@ body {
         box-shadow 0.2s ease;
 }
 
-
 /* Hover buton */
-
 .item-form button:hover {
     background: var(--dark-green-soft);
-
     transform: translateY(-2px);
 
     box-shadow:
@@ -566,12 +536,9 @@ body {
         0 0 12px var(--glow);
 }
 
-
 /* Lista goala */
-
 .empty {
     margin: 0;
-
     padding: 20px;
 
     text-align: center;
@@ -585,37 +552,67 @@ body {
         0 0 4px var(--text-glow);
 }
 
-
 /* Footer */
-
 .app-footer {
     padding: 32px 20px;
-
     text-align: center;
 
     color: var(--gold-light);
 
     font-size: 0.9rem;
-
     letter-spacing: 1px;
 
     text-shadow:
         0 0 4px var(--text-glow);
 }
 
-
 /* Focus cu Tab */
-
 :focus-visible {
     outline: 2px solid var(--beige-soft);
-
     outline-offset: 3px;
 }
 
-
 /* Responsive design */
+@media (max-width: 900px) {
+    .item-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
 
 @media (max-width: 700px) {
+    .app-header {
+        min-height: 340px;
+        flex-direction: column;
+        padding: 90px 20px 40px;
+        gap: 8px;
+    }
+
+    .main-nav {
+        top: 20px;
+        right: auto;
+        left: 50%;
+
+        transform: translateX(-50%);
+        justify-content: center;
+        flex-wrap: nowrap;
+
+        gap: 18px;
+        white-space: nowrap;
+    }
+
+    .main-nav a {
+        font-size: 15px;
+    }
+
+    .app-header h1 {
+        font-size: 2.7rem;
+        letter-spacing: 3px;
+    }
+
+    .app-header .subtitle,
+    .app-header > p:not(.app-count) {
+        font-size: 1.05rem;
+    }
 
     .container {
         margin: 30px auto;
@@ -624,19 +621,6 @@ body {
 
     .panel {
         padding: 24px;
-    }
-
-    .app-header {
-        min-height: 340px;
-    }
-
-    .app-header h1 {
-        font-size: 2.7rem;
-        letter-spacing: 3px;
-    }
-
-    .app-header .subtitle {
-        font-size: 1.05rem;
     }
 
     .item-list {
@@ -656,11 +640,8 @@ body {
     }
 }
 
-
 /* Dark mode */
-
 @media (prefers-color-scheme: dark) {
-
     :root {
         --bg: #0c1510;
         --bg-secondary: #1f1814;
@@ -693,6 +674,7 @@ body {
 
         --glow: rgba(212, 185, 111, 0.12);
         --glow-strong: rgba(212, 185, 111, 0.22);
+
         --text-glow: rgba(212, 185, 111, 0.35);
         --text-glow-strong: rgba(212, 185, 111, 0.55);
 
