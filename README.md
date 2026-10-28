@@ -59,6 +59,18 @@ Each card uses a unique `key` based on the artwork ID.
 
 The application displays a message when the artwork list is empty. The appearance of each card changes depending on its sold status.
 
+## Stage 5: local state and events
+
+The artwork list is managed using React `useState`. Artworks can be marked as sold or available using checkboxes and removed using Delete buttons.
+
+State updates are immutable, using `map()` and `filter()`. The artwork counter in the header updates automatically.
+
+A button in the header allows switching between light and dark mode.
+
+The gallery also includes a search field with artwork suggestions, allowing users to filter artworks by title or select them from a list.
+
+Changes to the artwork list and theme selection are lost when the page is refreshed.
+
 ## AI usage
 
 | Tool | Used for |
@@ -67,6 +79,7 @@ The application displays a message when the artwork list is empty. The appearanc
 | ChatGPT | Understanding JavaScript array methods, implementing data logic, and verifying Stage 2 console results |
 | ChatGPT | Understanding the Vite and React project structure and adapting the application for Stage 3 |
 | ChatGPT | Creating React components, understanding props, map and key, and testing the artwork list in Stage 4 |
+| ChatGPT | Understanding React useState, implementing checkbox and delete events, artwork search, and light/dark mode in Stage 5 |
 
 Details per stage: see the `ai-log/` folder.
 
@@ -76,4 +89,5 @@ Details per stage: see the `ai-log/` folder.
 - [x] Stage 2: data logic in JavaScript
 - [x] Stage 3: Vite and React project
 - [x] Stage 4: components rendered from data
-- [ ] Stage 5: local state and events
+- [x] Stage 5: local state and events
+- [ ] Stage 6: loading data from a mock API

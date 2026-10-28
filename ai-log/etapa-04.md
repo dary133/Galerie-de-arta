@@ -3,9 +3,6 @@
 ## Tools
 - ChatGPT
 
-## Conversations
-- [Add ChatGPT share link] (Understanding React components, props, rendering lists, and testing the application)
-
 ## Key requests
 
 ### 1. Understanding React components and props
