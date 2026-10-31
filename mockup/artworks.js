@@ -9,7 +9,7 @@ const artworks = [
         id: 2,
         title: "Silent Forest",
         available: false,
-        type: "Digital Art"
+        type: "Painting"
     },
     {
         id: 3,

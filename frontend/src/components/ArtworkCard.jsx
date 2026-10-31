@@ -1,5 +1,10 @@
 
-export default function ArtworkCard({ artwork, onToggle, onDelete }) {
+export default function ArtworkCard({
+  artwork,
+  onToggle,
+  onDelete,
+  onPreview
+}) {
   const typeClass = artwork.artwork_type === "Digital Art"
     ? "digital"
     : artwork.artwork_type.toLowerCase();
@@ -7,11 +12,20 @@ export default function ArtworkCard({ artwork, onToggle, onDelete }) {
   return (
     <li className={artwork.sold ? "item-card done" : "item-card"}>
       <div className="artwork-content">
-        <img
-          src={artwork.image}
-          alt={artwork.title}
-          className="artwork-image"
-        />
+
+        {/* Artwork preview */}
+        <button
+          type="button"
+          className="artwork-preview-button"
+          onClick={() => onPreview(artwork)}
+          aria-label={`View ${artwork.title} enlarged`}
+        >
+          <img
+            src={artwork.image}
+            alt={artwork.title}
+            className="artwork-image"
+          />
+        </button>
 
         <div className="artwork-info">
           <h3>

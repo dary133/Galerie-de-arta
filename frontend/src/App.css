@@ -974,3 +974,390 @@ body {
     transform: translateY(-3px);
     box-shadow: 0 0 15px var(--glow-strong);
 }
+
+
+/* Artwork image frame */
+.artwork-preview-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 340px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    background: var(--item-bg);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+
+    overflow: hidden;
+    cursor: zoom-in;
+
+    box-shadow: 0 0 10px var(--glow);
+
+    transition: box-shadow 0.3s ease;
+}
+
+/* Artwork image */
+.artwork-preview-button .artwork-image {
+    display: block;
+
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Artwork frame hover */
+.artwork-preview-button:hover {
+    box-shadow: 0 0 18px var(--glow-strong);
+}
+
+/* Keep image proportions on hover */
+.artwork-preview-button:hover .artwork-image {
+    transform: none;
+}
+
+/* Keyboard focus */
+.artwork-preview-button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+}
+
+/* Enlarged artwork */
+.artwork-lightbox-image {
+    display: block;
+
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 75vh;
+
+    margin: 0 auto 15px;
+    object-fit: contain;
+}
+
+
+/* Artwork preview background */
+.artwork-lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    overflow-y: auto;
+
+    background: color-mix(
+        in srgb,
+        var(--dark-green) 90%,
+        transparent
+    );
+
+    backdrop-filter: blur(6px);
+}
+
+/* Artwork preview window */
+.artwork-lightbox {
+    position: relative;
+
+    width: min(900px, 100%);
+    max-height: 90vh;
+
+    margin: auto;
+    padding: 50px 24px 24px;
+    overflow-y: auto;
+
+    background: var(--dark-green-soft);
+
+    border: 2px solid var(--gold);
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 0 30px var(--glow-strong);
+}
+
+/* Artwork preview title */
+.artwork-lightbox h3 {
+    margin: 12px 0 5px;
+
+    color: var(--gold-light);
+    font-size: 1.4rem;
+}
+
+/* Artwork preview type */
+.artwork-lightbox p {
+    margin: 0;
+    color: var(--gold);
+}
+
+/* Close preview button */
+.artwork-lightbox-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+
+    width: 40px;
+    height: 40px;
+
+    background: var(--dark-green);
+    color: var(--gold-light);
+
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* Close button hover */
+.artwork-lightbox-close:hover {
+    background: var(--item-hover-bg);
+    box-shadow: 0 0 12px var(--glow-strong);
+}
+
+/* Close button focus */
+.artwork-lightbox-close:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+}
+
+/* Artwork type filters */
+.artwork-type-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 15px;
+    margin: 20px 0 35px;
+}
+
+/* Filter buttons */
+.artwork-type-button {
+    padding: 12px 24px;
+
+    background: var(--dark-green);
+    color: var(--gold-light);
+
+    border: 1px solid var(--gold);
+    border-radius: 25px;
+
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 8px var(--glow);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Filter hover */
+.artwork-type-button:hover {
+    background: var(--dark-green-soft);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--glow-strong);
+}
+
+/* Selected filter */
+.artwork-type-button[aria-pressed="true"] {
+    background: var(--gold);
+    color: var(--dark-green);
+
+    border-color: var(--gold);
+    box-shadow: 0 0 15px var(--glow-strong);
+}
+
+/* Filter focus */
+.artwork-type-button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 3px;
+}
+
+/* Responsive filters */
+@media (max-width: 700px) {
+    .artwork-type-filters {
+        gap: 10px;
+    }
+
+    .artwork-type-button {
+        padding: 9px 15px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Painting on clothes description */
+.clothes-description {
+    margin: 0 0 30px;
+    color: var(--beige-soft);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Clothes video gallery */
+.clothes-video-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(235px, 300px));
+    justify-content: center;
+    gap: 25px;
+}
+
+/* Video cards */
+.clothes-video-card {
+    padding: 18px;
+
+    background: var(--item-bg);
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 24px var(--shadow),
+        0 0 8px var(--glow);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* Video card hover */
+.clothes-video-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--gold);
+
+    box-shadow:
+        0 16px 30px var(--shadow),
+        0 0 18px var(--glow-strong);
+}
+
+/* Clothes video */
+.clothes-video-card video {
+    display: block;
+
+    width: 100%;
+    max-height: 450px;
+    aspect-ratio: 9 / 16;
+
+    object-fit: contain;
+
+    background: var(--dark-green);
+
+    border: 2px solid var(--artwork-frame-gold);
+    border-radius: 10px;
+
+    box-shadow: 0 0 8px var(--artwork-frame-shadow);
+}
+
+/* Video title */
+.clothes-video-card h3 {
+    margin: 16px 0 5px;
+
+    color: var(--gold-light);
+
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    text-shadow: 0 0 8px var(--text-glow);
+}
+
+/* Mobile video gallery */
+@media (max-width: 700px) {
+    .clothes-video-list {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .clothes-video-card {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .main-nav {
+        gap: 12px;
+    }
+
+    .main-nav a {
+        font-size: 0.85rem;
+    }
+}
+
+
+/* Add artwork form */
+.add-artwork-form {
+    max-width: 760px;
+}
+
+.add-artwork-image-field,
+.add-artwork-note,
+.add-artwork-error {
+    grid-column: 1 / -1;
+}
+
+.add-artwork-form input[type="file"] {
+    cursor: pointer;
+}
+
+.add-artwork-form input[type="file"]::file-selector-button {
+    margin-right: 14px;
+    padding: 8px 12px;
+    border: 1px solid var(--gold);
+    border-radius: 7px;
+    background: var(--dark-green);
+    color: var(--gold-light);
+    font: inherit;
+    cursor: pointer;
+}
+
+.add-artwork-form input[type="file"]::file-selector-button:hover {
+    background: var(--dark-green-soft);
+}
+
+.add-artwork-note {
+    margin: -8px 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.add-artwork-error {
+    margin: 0;
+    color: var(--gold-light);
+    font-weight: bold;
+}
+
+.add-artwork-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+#add-artwork {
+    scroll-margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+    .add-artwork-form {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
