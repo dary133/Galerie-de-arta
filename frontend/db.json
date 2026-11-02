@@ -1,0 +1,88 @@
+{
+  "artworks": [
+    {
+      "id": 1,
+      "title": "Sunset Landscape",
+      "sold": false,
+      "artwork_type": "Painting",
+      "image": "/tablouri/sunset.png"
+    },
+    {
+      "id": 2,
+      "title": "Silent Forest",
+      "sold": true,
+      "artwork_type": "Painting",
+      "image": "/tablouri/forest.png"
+    },
+    {
+      "id": 3,
+      "title": "Abstract Flowers",
+      "sold": false,
+      "artwork_type": "Painting",
+      "image": "/tablouri/flowers.png"
+    },
+    {
+      "id": 4,
+      "title": "Pink Blossoms",
+      "sold": false,
+      "artwork_type": "Painting",
+      "image": "/tablouri/blossoms.png"
+    },
+    {
+      "id": 5,
+      "title": "Forgotten Knight",
+      "sold": false,
+      "artwork_type": "Painting",
+      "image": "/tablouri/knight.png"
+    },
+    {
+      "id": 6,
+      "title": "Panther",
+      "sold": false,
+      "artwork_type": "Illustration",
+      "image": "/tablouri/panther.png"
+    },
+    {
+      "id": 7,
+      "title": "Gold Panther",
+      "sold": false,
+      "artwork_type": "Painting",
+      "image": "/tablouri/gold-panther.png"
+    },
+    {
+      "id": 8,
+      "title": "Tropical Bloom",
+      "sold": false,
+      "artwork_type": "Painting",
+      "image": "/tablouri/bloom.png"
+    },
+    {
+      "id": 9,
+      "title": "Whispering Woods",
+      "sold": false,
+      "artwork_type": "Painting",
+      "image": "/tablouri/woods.png"
+    },
+    {
+      "id": 10,
+      "title": "Mythical Forest",
+      "sold": false,
+      "artwork_type": "Digital Art",
+      "image": "/tablouri/mythical.jpeg"
+    },
+    {
+      "id": 11,
+      "title": "Sakura Mountain",
+      "sold": false,
+      "artwork_type": "Digital Art",
+      "image": "/tablouri/sakura.jpeg"
+    },
+    {
+      "id": 12,
+      "title": "Coastal Path",
+      "sold": false,
+      "artwork_type": "Digital Art",
+      "image": "/tablouri/beach.jpeg"
+    }
+  ]
+}

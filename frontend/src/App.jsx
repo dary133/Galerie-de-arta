@@ -1,6 +1,7 @@
 import ArtworkList from "./components/ArtworkList.jsx";
 import ClothesGallery from "./components/ClothesGallery.jsx";
 import { useEffect, useState } from "react";
+import { fetchArtworks } from "./api.js";
 
 // Initial artworks
 const INITIAL_ARTWORKS = [
@@ -106,13 +107,44 @@ function initialTheme() {
 }
 
 export default function App() {
-  const [artworks, setArtworks] = useState(INITIAL_ARTWORKS);
+  const [artworks, setArtworks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showAllSuggestions, setShowAllSuggestions] = useState(false);
   const [typeFilter, setTypeFilter] = useState("All");
   const [selectedArtwork, setSelectedArtwork] = useState(null);
   const [theme, setTheme] = useState(initialTheme);
+
+  // Load artworks from API
+useEffect(() => {
+  let ignore = false;
+
+  async function loadArtworks() {
+    try {
+      const data = await fetchArtworks();
+
+      if (!ignore) {
+        setArtworks(data);
+      }
+    } catch (err) {
+      if (!ignore) {
+        setError(err.message);
+      }
+    } finally {
+      if (!ignore) {
+        setLoading(false);
+      }
+    }
+  }
+
+  loadArtworks();
+
+  return () => {
+    ignore = true;
+  };
+}, []);
 
   // Change artwork status
   function handleToggle(id) {
